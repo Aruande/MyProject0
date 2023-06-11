@@ -1,6 +1,8 @@
 package com.revature;
 
+import com.revature.daos.BankAccountDAO;
 import com.revature.daos.UserDAO;
+import com.revature.models.BankAccount;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
@@ -26,6 +28,17 @@ public class Driver {
         // update address for user
         System.out.println(uDAO.updateUserAddress("343 Willow st", "Sarah Dog"));
         System.out.println(uDAO.getUserById(2));
+
+        //Instantiate BankAccountDAO
+
+        BankAccountDAO bDAO = new BankAccountDAO();
+
+        BankAccount newAccount = new BankAccount("Savings", 5000.00,2);
+
+        System.out.println(bDAO.insertBankAccount(newAccount));
+
+
+
 
 
 
