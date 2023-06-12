@@ -5,6 +5,7 @@ import com.revature.utils.ConnectionUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BankAccountDAO implements BankAccountDAOInterface {
 
@@ -20,8 +21,10 @@ public class BankAccountDAO implements BankAccountDAOInterface {
             Statement s = conn.createStatement();
 
             ResultSet rs = s.executeQuery(sql);
+            List<BankAccount> bankAccounts = new ArrayList<>();
 
-            ArrayList<BankAccount> bankAccountArrayList = new ArrayList<>();//instantiate empty arraylist that holds incoming data
+
+            //ArrayList<BankAccount> bankAccountArrayList = new ArrayList<>();//instantiate empty arraylist that holds incoming data
 
             //Instantiate a UserDao to get User object
             UserDAO uDAO = new UserDAO();
@@ -34,6 +37,8 @@ public class BankAccountDAO implements BankAccountDAOInterface {
                         uDAO.getUserById(rs.getInt("user_id_fk"))
 
                 );
+                bankAccounts.add(bankAccount);
+
             }
 
         }catch (SQLException e){

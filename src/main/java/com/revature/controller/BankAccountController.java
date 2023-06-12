@@ -14,10 +14,11 @@ public class BankAccountController {
     private static final Logger logger = LoggerFactory.getLogger(BankAccountController.class);
 
     public static void handleGetAll(Context ctx) {
-        ArrayList<BankAccount> bankAccounts = bankAccountService.getAllBankAccounts();
+      // ArrayList<BankAccount> bankAccounts = bankAccountService.getAllBankAccounts();
 
-        ctx.status(200);
-        ctx.json(bankAccounts);
+       // ctx.json(bankAccountService.getAllBankAccounts());
+        ctx.json(bankAccountService);
+
 
     }
 
