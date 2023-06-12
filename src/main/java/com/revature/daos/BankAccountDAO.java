@@ -70,4 +70,23 @@ public class BankAccountDAO implements BankAccountDAOInterface {
         }
         return null;
     }
+
+    public boolean deleteBankAccount(int id) {
+        try(Connection conn = ConnectionUtil.getConnection()) {
+
+            String sql = "DELETE FROM bankaccounts WHERE account_id = ?";
+
+            PreparedStatement ps =conn.prepareStatement(sql);
+
+            ps.setInt(1,id);
+
+            return ps.executeUpdate() == 1;
+
+        }catch (SQLException e){
+            System.out.println("Delete bankaccount failed!");
+            e.printStackTrace();
+
+        }
+        return false;
+    }
 }

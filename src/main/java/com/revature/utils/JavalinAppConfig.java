@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import io.javalin.Javalin;
 import com.revature.controller.BankAccountController;
 import com.revature.controller.UserController;
-import io.javalin.json.JsonMapper;;
+import io.javalin.json.JsonMapper;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,16 +47,15 @@ public class JavalinAppConfig {
 
             .routes(() ->{
                 // each path will allow to group like method
-                path("bankAccounts", () ->{
+                path("bankaccounts", () ->{
                     // Declare my routes and methods super quickly
                     get(BankAccountController::handleGetAll);
-                    // app.get("/employees", EmployeeController::handleGetAll)
                     post(BankAccountController::handleCreate);
                     put(BankAccountController::handleUpdate);
-                    //delete(BankAccountController::handleDelete);
-                    // What about /employees/{id}?????
+
                     path("{id}", () ->{
                         get(BankAccountController::handleGetOne);
+                        delete(BankAccountController::handleDelete);
                     });
                 });
                 path("users", () ->{

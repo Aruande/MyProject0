@@ -27,7 +27,7 @@ public class Driver {
         System.out.println(uDAO.getUserById(3));
 
         // update address for user
-        System.out.println(uDAO.updateUserAddress("343 Willow st", "Sarah Dog"));
+       // System.out.println(uDAO.updateUserAddress("343 Willow st", "Sarah Dog"));
         System.out.println(uDAO.getUserById(2));
 
         //Instantiate BankAccountDAO

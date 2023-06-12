@@ -51,11 +51,12 @@ public class UserController {
     }
 
     public static void handleGetAll(Context ctx){
-        ctx.status(405);
+        ctx.json(userservice.getAllUsers());
     }
 
     public static void handleCreate(Context ctx){
-        ctx.status(405);
+        ctx.json(userservice.getAllUsers());
+
     }
 
     public static void handleUpdate(Context ctx){
@@ -66,8 +67,7 @@ public class UserController {
         User submittedUser = ctx.bodyAsClass(User.class);
 
         // Call the roleService to actually do something with this info
-        boolean updateSuccessful = UserService.updateUserAddress(submittedUser.getAddress(),
-                submittedUser.getUsername());
+        boolean updateSuccessful = UserService.updateUserAddress(submittedUser);
 
         // So updateSuccessful should let us know if we successfully updated the DB
         if (updateSuccessful){

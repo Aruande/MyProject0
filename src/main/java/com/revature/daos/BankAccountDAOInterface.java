@@ -15,5 +15,7 @@ public interface BankAccountDAOInterface {
 
     BankAccount insertBankAccount(BankAccount bankAccount);
 
+    boolean deleteBankAccount( int id);
+
 
 }

@@ -8,14 +8,18 @@ import java.util.ArrayList;
 
 public class BankAccountService {
 
-    private final BankAccountDAOInterface bankaccountDAO = new BankAccountDAO();
+    private final BankAccountDAOInterface bankAccountDAO = new BankAccountDAO();
 
     public ArrayList<BankAccount> getAllBankAccounts(){
-        return bankaccountDAO.getAllBankAccounts();
+        return bankAccountDAO.getAllBankAccounts();
     }
 
     public BankAccount createNewBankAccount(BankAccount bankAccount){
-        return bankaccountDAO.insertBankAccount(bankAccount);
+        return bankAccountDAO.insertBankAccount(bankAccount);
+    }
+
+    public boolean deleteBankAccount(int id){
+        return bankAccountDAO.deleteBankAccount(id);
     }
 
 }

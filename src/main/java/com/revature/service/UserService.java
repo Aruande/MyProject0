@@ -5,6 +5,8 @@ import com.revature.daos.UserDAO;
 import com.revature.daos.UserDAOInterface;
 import com.revature.models.User;
 
+import java.util.List;
+
 // Business logic layer for the application that is called in the controller layer and the dao layer to interact w/ the DB
 public class UserService {
     //gets an instance of the UserDAO
@@ -13,6 +15,12 @@ public class UserService {
     public UserService(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
+
+    public List<User> getAllUsers(){
+        return userDAO.getAllUsers();
+    }
+
+
 
 
     //private final UserDAOInterface userDAO = new UserDAO();
@@ -26,25 +34,8 @@ public class UserService {
         }
 
     }
-    public static boolean updateUserAddress(String address, String username) {
-        if (username == null || username.trim().equals("")) {
-            return false;
-        }
-        char[] usernameArray = username.toLowerCase().toCharArray();
-        String formattedUsername = "";
-        formattedUsername += Character.toUpperCase(usernameArray[0]);
-        for (int i = 1; i < usernameArray.length; i++) {
-            if (usernameArray[i - 1] == ' ') {
-                formattedUsername += Character.toUpperCase(usernameArray[i]);
-            } else {
-                formattedUsername += usernameArray[i];
-            }
-        }
-        if (address != null && !address.isEmpty()) {
-
-            return userDAO.updateUserAddress(address, formattedUsername);
-        }
-        return false;
+    public static boolean updateUserAddress(User user) {
+        return userDAO.updateUserAddress(user);
     }
 
 }
