@@ -4,6 +4,7 @@ import com.revature.daos.BankAccountDAO;
 import com.revature.daos.UserDAO;
 import com.revature.models.BankAccount;
 import com.revature.utils.ConnectionUtil;
+import com.revature.utils.JavalinAppConfig;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -35,7 +36,13 @@ public class Driver {
 
         BankAccount newAccount = new BankAccount("Savings", 5000.00,2);
 
-        System.out.println(bDAO.insertBankAccount(newAccount));
+
+
+        // Create a new instance of the Javalin Config class
+        JavalinAppConfig app = new JavalinAppConfig();
+
+        // Start the app with app.start
+        app.start(7070);
 
 
 

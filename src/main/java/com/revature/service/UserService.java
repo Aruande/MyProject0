@@ -8,9 +8,16 @@ import com.revature.models.User;
 // Business logic layer for the application that is called in the controller layer and the dao layer to interact w/ the DB
 public class UserService {
     //gets an instance of the UserDAO
-    private final UserDAOInterface userDAO = new UserDAO();
 
-    public User getUserById(int id){
+    private static  UserDAOInterface userDAO;
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+
+    //private final UserDAOInterface userDAO = new UserDAO();
+
+    public static User getUserById(int id){
 
         if(id > 0){
             return  userDAO.getUserById(id);
@@ -19,7 +26,7 @@ public class UserService {
         }
 
     }
-    public boolean updateUserAddress(String address, String username) {
+    public static boolean updateUserAddress(String address, String username) {
         if (username == null || username.trim().equals("")) {
             return false;
         }

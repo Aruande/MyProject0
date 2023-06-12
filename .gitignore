@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Future proofing for incoming log file
+log.txt
+
+# We want to add the properties file here so it never gets uploaded to github
+src/main/resources/application.properties
